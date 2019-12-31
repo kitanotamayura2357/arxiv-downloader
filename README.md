@@ -5,7 +5,7 @@
 pandasのインストール  
 
 ```
-$ pip pandas pandas
+$ pip  pandas
 ```
 
 arXiv APIのインストール
@@ -13,6 +13,25 @@ arXiv APIのインストール
 ```
 $ pip install arxiv
 ```
+
+schedule moduleのインストール
+
+```
+$ pip install schedule
+```
+
+slackbotのインストール
+
+```
+$ pip install slackbot
+```
+
+API_TOKENを記入
+
+```
+API_TOKEN = "XXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX"
+```
+
 ## 使い方
 
 以下のコマンドでarXivに上がっているauthor nameの論文を全て自動ダウンロードする
