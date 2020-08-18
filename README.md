@@ -32,6 +32,8 @@ $ pip install slackbot
 
 API_TOKENを記入
 
+`slackbot_setting.py`
+
 ```
 API_TOKEN = "XXXX-XXXXXXXXXXXXXX-XXXXXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXX"
 ```
