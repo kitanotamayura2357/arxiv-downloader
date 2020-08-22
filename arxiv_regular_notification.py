@@ -77,9 +77,3 @@ class ArxivTodayNotification(object):
             print("submit", paper.get('published'))
             print("update", paper.get('updated'))
         return paper_list
-
-
-
-
-
-
