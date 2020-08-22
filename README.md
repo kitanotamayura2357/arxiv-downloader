@@ -49,3 +49,10 @@ $ python arxiv_downloader.py "author name"
 arXiv_ID title (author1, author2, ...)
 ```
 になる
+
+
+
+止める時
+```
+control + c
+```
