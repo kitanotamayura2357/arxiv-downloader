@@ -1,0 +1,6 @@
+[packages]
+numpy = "==1.19.1"
+schedule = "*"
+arxiv = "*"
+pandas = "*"
+slacker = "*"
