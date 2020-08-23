@@ -1,10 +1,4 @@
-import pprint
 import arxiv
-import pandas as pd
-import time
-import argparse
-import os
-import datetime
 
 
 class ArxivTodayNotification(object):
@@ -18,43 +12,30 @@ class ArxivTodayNotification(object):
         print("date")
         print(self.date)
 
-        submittedDate = f'submittedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day-3}]'
-        updatedDate = f'updatedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day}]'
-
         summary_word = f'abs: "{topic_word}"'
-        paper_list = arxiv.query(query=f'{submittedDate} AND {summary_word}')
-        
-        # length_paper_list = len(paper_list)
+        paper_list = arxiv.query(query=f'{summary_word}')
 
         for paper in paper_list:
-            print("title:",paper.get('title'))
-            print("authors",paper.get('authors'))
-            print("submit:",paper.get('published'))
-            print("update:",paper.get('updated'))
+            print("title:", paper.get('title'))
+            print("authors", paper.get('authors'))
+            print("submit:", paper.get('published'))
+            print("update:", paper.get('updated'))
 
         return paper_list
 
     def search_today_paper_author(self, author):
 
-        submittedDate = f'submittedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day-3}]'
-        updatedDate = f'updatedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day}]'
-
         authors = f'au:"{author}"'
-        paper_list = arxiv.query(query=f'{submittedDate} AND {authors}')
+        paper_list = arxiv.query(query=f'{authors}')
 
         for paper in paper_list:
-            print("title",paper.get('title'))
-            print("authors",paper.get('authors'))
-            print("submit",paper.get('published'))
-            print("update",paper.get('updated'))
+            print("title", paper.get('title'))
+            print("authors", paper.get('authors'))
+            print("submit", paper.get('published'))
+            print("update", paper.get('updated'))
         return paper_list
 
     def search_today_paper(self, word, condition="topic_word"):
-
-        submittedDate = f'submittedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day-3}]'
-        updatedDate = f'updatedDate:[{self.date.year}{self.date.month}{self.date.day-10} TO {self.date.year}{self.date.month}{self.date.day}]'
-        print(submittedDate)
-        print(word)
 
         paper_list = []
 
@@ -67,10 +48,11 @@ class ArxivTodayNotification(object):
         for paper in pre_paper_list:
             if [self.date.year,
                 self.date.month,
-                self.date.day-3] == [paper["updated_parsed"][0],
+                self.date.day-5] == [paper["updated_parsed"][0],
                                      paper["updated_parsed"][1],
                                      paper["updated_parsed"][2]]:
                 paper_list.append(paper)
+                print(paper)
 
         for paper in paper_list:
             print("title", paper.get('title'))
