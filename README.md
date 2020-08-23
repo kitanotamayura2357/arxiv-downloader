@@ -56,3 +56,15 @@ arXiv_ID title (author1, author2, ...)
 ```
 control + c
 ```
+
+## bot_channelを追加する
+
+#### slack側の実装
+
+1. slackのチャンネルを作成する
+2. チャンネルをクリックしてアプリの追加を選択
+3. Bethe_ansatzを選択
+
+#### コード側の実装
+
+1. 
