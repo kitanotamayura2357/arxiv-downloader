@@ -7,7 +7,7 @@ import arxiv_download_manager as adm
 
 
 def post_paper_to_slack(date, word, condition="topic_word", slack_channel="bot-test-channel"):
-
+    print("tg")
     atn = arn.ArxivTodayNotification(date)
     today_paper_list = atn.search_today_paper(word=word, condition=condition)
     bp.post_paper_list(today_paper_list=today_paper_list, slack_channel=slack_channel)
@@ -20,6 +20,7 @@ def post_paper_to_slack(date, word, condition="topic_word", slack_channel="bot-t
 def job():
 
     date = datetime.datetime.now()
+    print(date)
     post_paper_to_slack(date=date,
                         word="Bethe",
                         condition="topic_word",
@@ -35,13 +36,13 @@ def job():
 
 
 # 毎日定時に実行
-schedule.every().day.at("10:00").do(job)
+#schedule.every().day.at("10:00").do(job)
 
+# 動作確認用
+schedule.every(1).minutes.do(job)
 
 print("start")
 while True:
+    print("rr")
     schedule.run_pending()
     time.sleep(1)
-
-
-

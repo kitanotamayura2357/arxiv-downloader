@@ -1,7 +1,4 @@
-import pprint
 import arxiv
-import pandas as pd
-import time
 import argparse
 import os
 
@@ -20,7 +17,6 @@ print("paper_list_length",len(paper_list))
 #             os.mkdir(new_dir_path)
 
 
-
 def get_paper_name(paper):
     authors_name = ','.join(paper.get('authors')).replace(' ', '.')
     paper_id = paper.get('id').split('/')[-1]
@@ -32,11 +28,11 @@ def get_paper_name(paper):
     return paper_file_name
 
 
-
 def make_download_directory():
     arxiv_path = 'downloaded_arxiv_paper'
     if not os.path.isdir(arxiv_path):
         os.mkdir(arxiv_path)
+
 
 def make_author_directory(given_author, authors): 
     for author in authors:
@@ -65,9 +61,6 @@ if paper_list:
         #make_author_directory(aut)
 
 
-
-
-    
 # num = 0
 # for paper in paper_list:
 #     num = num + 1
