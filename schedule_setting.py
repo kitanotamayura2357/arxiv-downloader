@@ -7,7 +7,7 @@ import arxiv_download_manager as adm
 
 
 def post_paper_to_slack(date, word, condition="topic_word", slack_channel="bot-test-channel"):
-    print("tg")
+
     atn = arn.ArxivTodayNotification(date)
     today_paper_list = atn.search_today_paper(word=word, condition=condition)
     bp.post_paper_list(today_paper_list=today_paper_list, slack_channel=slack_channel)
@@ -43,6 +43,5 @@ schedule.every(1).minutes.do(job)
 
 print("start")
 while True:
-    print("rr")
     schedule.run_pending()
     time.sleep(1)
