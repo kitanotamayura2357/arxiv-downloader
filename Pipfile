@@ -1,5 +1,5 @@
 [packages]
-numpy = "==1.19.1"
+numpy = "==1.22.0"
 schedule = "*"
 arxiv = "*"
 pandas = "*"
